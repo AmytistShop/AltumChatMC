@@ -1,0 +1,34 @@
+# Цвета через &
+platform:
+  # Префиксы показывающие платформу игрока.
+  # По умолчанию: Java [&cJ&f], Bedrock [&bB&f]
+  java: "&7[&cJ&f&7]"
+  bedrock: "&7[&bB&f&7]"
+
+chat:
+  # Можно использовать:
+  # %LuckPerms_prefix%  %LuckPerms_suffix%
+  # {nick} {message} {platform} {prefix} {suffix}
+  format: "{platform} %LuckPerms_prefix%{nick}%LuckPerms_suffix% &7: &f{message}"
+
+messages:
+  join: "&a+ &7{nick} &8{platform}"
+  quit: "&c- &7{nick} &8{platform}"
+  alone: "&eНа сервере кроме тебя никого нет."
+  noPerm: "&cНет прав."
+
+tell:
+  usage: "&cИспользуй: &f/tell <ник> <сообщение>"
+  playerOffline: "&cИгрок не в сети."
+
+  # {from} {to} {message}
+  toReceiver: "&d[ЛС] &7{from} &8» &f{message}"
+  toSender: "&d[ЛС] &7Ты &8» &7{to}&8: &f{message}"
+  toSpy: "&8[&cSPY&8] &d[ЛС] &7{from} &8» &7{to}&8: &f{message}"
+
+spy:
+  enabled: "&aSpy включён."
+  disabled: "&cSpy выключен."
+
+  # {nick} и {command}
+  commandFormat: "&8[&cSPY&8] &7{nick} &8» &f{command}"

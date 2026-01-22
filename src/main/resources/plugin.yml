@@ -1,0 +1,26 @@
+name: AltumChatMC
+version: 1.0.0
+main: me.altumchatmc.chat.AltumChatPlugin
+api-version: "1.13"
+depend: [LuckPerms]
+softdepend: [floodgate, Geyser-Spigot]
+
+commands:
+  tell:
+    description: Личное сообщение
+    usage: /tell <ник> <сообщение>
+    aliases: [msg, w, whisper]
+  spy:
+    description: Режим шпиона (видеть /tell и команды)
+    usage: /spy
+
+permissions:
+  altumchat.tell:
+    description: Доступ к /tell
+    default: true
+  altumchat.spy.toggle:
+    description: Доступ к /spy (вкл/выкл)
+    default: op
+  altumchat.spy.see:
+    description: Получать сообщения шпиона
+    default: op
