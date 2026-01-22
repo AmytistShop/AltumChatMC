@@ -2,7 +2,9 @@ package me.altumchatmc.chat;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.command.*;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 public class TellCommand implements CommandExecutor {
@@ -50,7 +52,7 @@ public class TellCommand implements CommandExecutor {
 
         String fromName = (sender instanceof Player p) ? p.getName() : "CONSOLE";
 
-        // Receiver message
+        // Receiver
         String receiverMsg;
         if (sender instanceof Player sp) {
             receiverMsg = plugin.applyCommonPlaceholders(receiverFmt, sp, message, sp.getName())
@@ -64,7 +66,7 @@ public class TellCommand implements CommandExecutor {
         }
         target.sendMessage(receiverMsg);
 
-        // Sender message
+        // Sender
         String senderMsg;
         if (sender instanceof Player sp) {
             senderMsg = plugin.applyCommonPlaceholders(senderFmt, sp, message, sp.getName())
@@ -79,7 +81,7 @@ public class TellCommand implements CommandExecutor {
         sender.sendMessage(senderMsg);
 
         // Spy notify (exclude sender+receiver)
-        for (var u : plugin.getSpySet()) {
+        for (UUID u : plugin.getSpySet()) {
             Player spy = Bukkit.getPlayer(u);
             if (spy == null || !spy.isOnline()) continue;
             if (!spy.hasPermission("altumchat.spy.see")) continue;
