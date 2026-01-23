@@ -3,7 +3,7 @@ version: 1.0.0
 main: me.altumchatmc.chat.AltumChatPlugin
 api-version: "1.13"
 depend: [LuckPerms]
-softdepend: [floodgate, Geyser-Spigot]
+softdepend: [floodgate, Geyser-Spigot, PlaceholderAPI]
 
 commands:
   tell:

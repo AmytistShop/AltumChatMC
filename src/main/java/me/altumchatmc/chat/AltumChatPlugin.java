@@ -27,6 +27,7 @@ public class AltumChatPlugin extends JavaPlugin implements Listener {
 
     private LuckPerms luckPerms;
     private boolean floodgatePresent;
+    private boolean placeholderApiPresent;
 
     private final Set<UUID> spy = ConcurrentHashMap.newKeySet();
 
@@ -42,6 +43,16 @@ public class AltumChatPlugin extends JavaPlugin implements Listener {
         }
 
         floodgatePresent = Bukkit.getPluginManager().getPlugin("floodgate") != null;
+        placeholderApiPresent = Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null;
+
+        if (placeholderApiPresent) {
+            try {
+                new AltumChatExpansion(this).register();
+                getLogger().info("PlaceholderAPI detected: registered %altumchat_*% placeholders.");
+            } catch (Throwable t) {
+                getLogger().warning("Failed to register PlaceholderAPI expansion: " + t.getMessage());
+            }
+        }
 
         Bukkit.getPluginManager().registerEvents(this, this);
 
